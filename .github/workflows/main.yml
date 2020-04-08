@@ -40,7 +40,10 @@ jobs:
 
       # Statically analyze the Dart code for any errors.
       - run: flutter analyze .
-
+        
+      # - run: flutter to build web folder
+      - run: flutter --version
+        
       # Run widget tests for our flutter project.
       # - run: flutter to build web folder
       - run: flutter build web
