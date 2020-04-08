@@ -1,4 +1,4 @@
-name: Flutter CI
+name: Flutter CI&CD
 
 # This workflow is triggered on pushes to the repository.
 
@@ -41,7 +41,7 @@ jobs:
       # Run widget tests for our flutter project.
       # - run: flutter to build web folder
       - run: flutter build web
-          -
+
       # Run widget tests for our flutter project.
       # - run: flutter to build web folder
       - run: firebase deploy --token ${{ secrets.FIREBASE_TOKEN }}
