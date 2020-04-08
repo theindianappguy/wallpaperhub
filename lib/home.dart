@@ -23,7 +23,8 @@ class _HomeState extends State<Home> {
   List<PhotosModel> photos = new List();
 
   getTrendingWallpaper() async {
-    await http.get("https://api.pexels.com/v1/curated?per_page=$noOfImageToLoad&page=1",
+    await http.get(
+        "https://api.pexels.com/v1/curated?per_page=$noOfImageToLoad&page=1",
         headers: {"Authorization": apiKEY}).then((value) {
       //print(value.body);
 
@@ -54,12 +55,10 @@ class _HomeState extends State<Home> {
     _scrollController.addListener(() {
       if (_scrollController.position.pixels ==
           _scrollController.position.maxScrollExtent) {
-
         noOfImageToLoad = noOfImageToLoad + 30;
         getTrendingWallpaper();
       }
     });
-
   }
 
   _launchURL(String url) async {
@@ -82,7 +81,6 @@ class _HomeState extends State<Home> {
         child: Container(
           child: Column(
             children: <Widget>[
-
               Container(
                 decoration: BoxDecoration(
                   color: Color(0xfff5f8fd),
@@ -122,7 +120,10 @@ class _HomeState extends State<Home> {
                 children: <Widget>[
                   Text(
                     "Made By ",
-                    style: TextStyle(color: Colors.black54, fontSize: 12, fontFamily: 'Overpass'),
+                    style: TextStyle(
+                        color: Colors.black54,
+                        fontSize: 12,
+                        fontFamily: 'Overpass'),
                   ),
                   GestureDetector(
                     onTap: () {
@@ -130,10 +131,12 @@ class _HomeState extends State<Home> {
                     },
                     child: Container(
                         child: Text(
-                          "Sanskar Tiwari",
-                          style: TextStyle(
-                              color: Colors.blue, fontSize: 12, fontFamily: 'Overpass'),
-                        )),
+                      "Sanskar Tiwari",
+                      style: TextStyle(
+                          color: Colors.blue,
+                          fontSize: 12,
+                          fontFamily: 'Overpass'),
+                    )),
                   ),
                 ],
               ),
@@ -156,13 +159,18 @@ class _HomeState extends State<Home> {
                     }),
               ),
               wallPaper(photos, context),
-              SizedBox(height: 24,),
+              SizedBox(
+                height: 24,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Text(
                     "Photos provided By ",
-                    style: TextStyle(color: Colors.black54, fontSize: 12, fontFamily: 'Overpass'),
+                    style: TextStyle(
+                        color: Colors.black54,
+                        fontSize: 12,
+                        fontFamily: 'Overpass'),
                   ),
                   GestureDetector(
                     onTap: () {
@@ -170,14 +178,18 @@ class _HomeState extends State<Home> {
                     },
                     child: Container(
                         child: Text(
-                          "Pexels",
-                          style: TextStyle(
-                              color: Colors.blue, fontSize: 12, fontFamily: 'Overpass'),
-                        )),
+                      "Pexels",
+                      style: TextStyle(
+                          color: Colors.blue,
+                          fontSize: 12,
+                          fontFamily: 'Overpass'),
+                    )),
                   )
                 ],
               ),
-              SizedBox(height: 24,),
+              SizedBox(
+                height: 24,
+              ),
             ],
           ),
         ),
@@ -204,75 +216,79 @@ class CategoriesTile extends StatelessWidget {
       },
       child: Container(
         margin: EdgeInsets.only(right: 8),
-        child: kIsWeb ?
-        Column(
-          children: <Widget>[
-            ClipRRect(
-                borderRadius: BorderRadius.circular(8),
-                child: kIsWeb
-                    ? Image.network(
-                  imgUrls,
-                  height: 50,
-                  width: 100,
-                  fit: BoxFit.cover,
-                )
-                    : CachedNetworkImage(
-                  imageUrl: imgUrls,
-                  height: 50,
-                  width: 100,
-                  fit: BoxFit.cover,
-                )),
-            SizedBox(height: 4,),
-            Container(
-                width: 100,
-                alignment: Alignment.center,
-                child: Text(
-                  categorie,
-                  style: TextStyle(
-                      color: Colors.black54,
-                      fontSize: 13,
-                      fontWeight: FontWeight.w400,
-                      fontFamily: 'Overpass'),
-                )),
-
-        ],) : Stack(
-          children: <Widget>[
-            ClipRRect(
-                borderRadius: BorderRadius.circular(8),
-                child: kIsWeb
-                    ? Image.network(
-                        imgUrls,
-                        height: 50,
-                        width: 100,
-                        fit: BoxFit.cover,
-                      )
-                    : CachedNetworkImage(
-                        imageUrl: imgUrls,
-                        height: 50,
-                        width: 100,
-                        fit: BoxFit.cover,
+        child: kIsWeb
+            ? Column(
+                children: <Widget>[
+                  ClipRRect(
+                      borderRadius: BorderRadius.circular(8),
+                      child: kIsWeb
+                          ? Image.network(
+                              imgUrls,
+                              height: 50,
+                              width: 100,
+                              fit: BoxFit.cover,
+                            )
+                          : CachedNetworkImage(
+                              imageUrl: imgUrls,
+                              height: 50,
+                              width: 100,
+                              fit: BoxFit.cover,
+                            )),
+                  SizedBox(
+                    height: 4,
+                  ),
+                  Container(
+                      width: 100,
+                      alignment: Alignment.center,
+                      child: Text(
+                        categorie,
+                        style: TextStyle(
+                            color: Colors.black54,
+                            fontSize: 13,
+                            fontWeight: FontWeight.w400,
+                            fontFamily: 'Overpass'),
                       )),
-            Container(
-              height: 50,
-              width: 100,
-              decoration: BoxDecoration(
-                color: Colors.black26,
-                borderRadius: BorderRadius.circular(8),
+                ],
+              )
+            : Stack(
+                children: <Widget>[
+                  ClipRRect(
+                      borderRadius: BorderRadius.circular(8),
+                      child: kIsWeb
+                          ? Image.network(
+                              imgUrls,
+                              height: 50,
+                              width: 100,
+                              fit: BoxFit.cover,
+                            )
+                          : CachedNetworkImage(
+                              imageUrl: imgUrls,
+                              height: 50,
+                              width: 100,
+                              fit: BoxFit.cover,
+                            )),
+                  Container(
+                    height: 50,
+                    width: 100,
+                    decoration: BoxDecoration(
+                      color: Colors.black26,
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                  ),
+                  Container(
+                      height: 50,
+                      width: 100,
+                      alignment: Alignment.center,
+                      child: Text(
+                        categorie ?? "Yo Yo",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 15,
+                            fontWeight: FontWeight.w500,
+                            fontFamily: 'Overpass'),
+                      ))
+                ],
               ),
-            ),
-            Container(
-                height: 50,
-                width: 100,
-                alignment: Alignment.center,
-                child: Text(
-                  categorie ?? "Yo Yo",
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 15,
-                      fontWeight: FontWeight.w500, fontFamily: 'Overpass'),
-                ))
-          ],
-        ),
       ),
     );
   }

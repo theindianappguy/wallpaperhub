@@ -7,19 +7,18 @@ class PhotosModel {
 
   PhotosModel(
       {this.url,
-        this.photographer,
-        this.photographer_id,
-        this.photographer_url,
-        this.src});
+      this.photographer,
+      this.photographer_id,
+      this.photographer_url,
+      this.src});
 
-  factory PhotosModel.fromMap(Map<String,dynamic> parsedJson){
+  factory PhotosModel.fromMap(Map<String, dynamic> parsedJson) {
     return PhotosModel(
         url: parsedJson["url"],
         photographer: parsedJson["photographer"],
         photographer_id: parsedJson["photographer_id"],
         photographer_url: parsedJson["photographer_url"],
-        src: SrcModel.fromMap(parsedJson["src"])
-    );
+        src: SrcModel.fromMap(parsedJson["src"]));
   }
 }
 
@@ -29,19 +28,13 @@ class SrcModel {
   String landscape;
   String medium;
 
-  SrcModel({
-    this.portrait,
-    this.landscape,
-    this.large,
-    this.medium
-  });
+  SrcModel({this.portrait, this.landscape, this.large, this.medium});
 
-  factory SrcModel.fromMap(Map<String,dynamic> srcJson){
+  factory SrcModel.fromMap(Map<String, dynamic> srcJson) {
     return SrcModel(
         portrait: srcJson["portrait"],
         large: srcJson["large"],
         landscape: srcJson["landscape"],
-        medium: srcJson["medium"]
-    );
+        medium: srcJson["medium"]);
   }
 }

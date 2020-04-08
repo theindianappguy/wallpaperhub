@@ -7,6 +7,7 @@ import 'package:wallpaper/widget/widget.dart';
 
 class CategorieScreen extends StatefulWidget {
   final String categorie;
+
   CategorieScreen({@required this.categorie});
 
   @override
@@ -14,14 +15,12 @@ class CategorieScreen extends StatefulWidget {
 }
 
 class _CategorieScreenState extends State<CategorieScreen> {
-
   List<PhotosModel> photos = new List();
 
-
   getCategorieWallpaper() async {
-    await http.get("https://api.pexels.com/v1/search?query=${widget.categorie}&per_page=30&page=1",
-        headers: {
-          "Authorization": apiKEY}).then((value) {
+    await http.get(
+        "https://api.pexels.com/v1/search?query=${widget.categorie}&per_page=30&page=1",
+        headers: {"Authorization": apiKEY}).then((value) {
       //print(value.body);
 
       Map<String, dynamic> jsonData = jsonDecode(value.body);
@@ -31,12 +30,9 @@ class _CategorieScreenState extends State<CategorieScreen> {
         photosModel = PhotosModel.fromMap(element);
         photos.add(photosModel);
         //print(photosModel.toString()+ "  "+ photosModel.src.portrait);
-
       });
 
-      setState(() {
-
-      });
+      setState(() {});
     });
   }
 
@@ -46,7 +42,6 @@ class _CategorieScreenState extends State<CategorieScreen> {
     super.initState();
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,14 +49,17 @@ class _CategorieScreenState extends State<CategorieScreen> {
         title: brandName(),
         elevation: 0.0,
         actions: <Widget>[
-        Container(
-          padding: EdgeInsets.symmetric(horizontal: 16),
-            child: Icon(Icons.add, color: Colors.white,))
+          Container(
+              padding: EdgeInsets.symmetric(horizontal: 16),
+              child: Icon(
+                Icons.add,
+                color: Colors.white,
+              ))
         ],
       ),
       body: SingleChildScrollView(
         child: wallPaper(photos, context)
-         /* Container(
+        /* Container(
         padding: EdgeInsets.symmetric(horizontal: 16),
         child: GridView.count(
             crossAxisCount: 2,
@@ -94,7 +92,9 @@ class _CategorieScreenState extends State<CategorieScreen> {
                     ),
                   ));
             }).toList()),
-      )*/,),
+      )*/
+        ,
+      ),
     );
   }
 }

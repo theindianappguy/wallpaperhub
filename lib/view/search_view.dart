@@ -8,6 +8,7 @@ import 'package:wallpaper/widget/widget.dart';
 
 class SearchView extends StatefulWidget {
   final String search;
+
   SearchView({@required this.search});
 
   @override
@@ -15,15 +16,13 @@ class SearchView extends StatefulWidget {
 }
 
 class _SearchViewState extends State<SearchView> {
-
   List<PhotosModel> photos = new List();
   TextEditingController searchController = new TextEditingController();
 
-  getSearchWallpaper(String searchQuery) async{
-
-    await http.get("https://api.pexels.com/v1/search?query=$searchQuery&per_page=30&page=1",
-        headers: {
-          "Authorization": apiKEY}).then((value) {
+  getSearchWallpaper(String searchQuery) async {
+    await http.get(
+        "https://api.pexels.com/v1/search?query=$searchQuery&per_page=30&page=1",
+        headers: {"Authorization": apiKEY}).then((value) {
       //print(value.body);
 
       Map<String, dynamic> jsonData = jsonDecode(value.body);
@@ -33,12 +32,9 @@ class _SearchViewState extends State<SearchView> {
         photosModel = PhotosModel.fromMap(element);
         photos.add(photosModel);
         //print(photosModel.toString()+ "  "+ photosModel.src.portrait);
-
       });
 
-      setState(() {
-
-      });
+      setState(() {});
     });
   }
 
@@ -49,7 +45,6 @@ class _SearchViewState extends State<SearchView> {
     super.initState();
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,7 +54,10 @@ class _SearchViewState extends State<SearchView> {
         actions: <Widget>[
           Container(
               padding: EdgeInsets.symmetric(horizontal: 16),
-              child: Icon(Icons.add, color: Colors.white,))
+              child: Icon(
+                Icons.add,
+                color: Colors.white,
+              ))
         ],
       ),
       backgroundColor: Colors.white,
@@ -81,15 +79,15 @@ class _SearchViewState extends State<SearchView> {
                   children: <Widget>[
                     Expanded(
                         child: TextField(
-                          controller: searchController,
-                          decoration: InputDecoration(
-                              hintText: "search wallpapers",
-                              border: InputBorder.none),
-                        )),
+                      controller: searchController,
+                      decoration: InputDecoration(
+                          hintText: "search wallpapers",
+                          border: InputBorder.none),
+                    )),
                     InkWell(
-                      onTap: (){
-                        getSearchWallpaper(searchController.text);
-                      },
+                        onTap: () {
+                          getSearchWallpaper(searchController.text);
+                        },
                         child: Container(child: Icon(Icons.search)))
                   ],
                 ),
