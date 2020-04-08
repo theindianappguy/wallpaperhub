@@ -157,11 +157,11 @@ class _ImageViewState extends State<ImageView> {
 
   _askPermission() async {
     if (Platform.isIOS) {
-      Map<PermissionGroup, PermissionStatus> permissions =
-          await PermissionHandler()
+      /*Map<PermissionGroup, PermissionStatus> permissions =
+          */await PermissionHandler()
               .requestPermissions([PermissionGroup.photos]);
     } else {
-      PermissionStatus permission = await PermissionHandler()
+     /* PermissionStatus permission = */await PermissionHandler()
           .checkPermissionStatus(PermissionGroup.storage);
     }
   }
