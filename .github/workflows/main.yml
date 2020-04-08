@@ -45,8 +45,8 @@ jobs:
       - run: flutter --version
         
       # Run widget tests for our flutter project.
-      # - run: flutter to build web folder
-      - run: flutter build web
+      # to build web folder
+      # - run: flutter build web
 
       # Run widget tests for our flutter project.
       # - run: flutter to build web folder
