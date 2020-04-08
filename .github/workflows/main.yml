@@ -24,7 +24,9 @@ jobs:
       # Setup the flutter environment.
       - uses: subosito/flutter-action@v1
         with:
-          channel: 'beta' # 'dev', 'alpha', default to: 'stable'
+          flutter-version: '1.15.17'
+          channel: 'beta'
+          # 'dev', 'alpha', default to: 'stable'
           # flutter-version: '1.12.x' # you can also specify exact version of flutter
 
       # Get flutter dependencies.
@@ -37,7 +39,12 @@ jobs:
       - run: flutter analyze .
 
       # Run widget tests for our flutter project.
-      # - run: flutter test
+      # - run: flutter to build web folder
+      - run: flutter build web
+          -
+      # Run widget tests for our flutter project.
+      # - run: flutter to build web folder
+      - run: firebase deploy --token ${{ secrets.FIREBASE_TOKEN }}
 
       # Build apk.
       - run: flutter build apk
