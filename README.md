@@ -1,16 +1,7 @@
-# wallpaper
+![Build Wallpaper App with Flutter](https://user-images.githubusercontent.com/55942632/78735149-abd9ee00-7967-11ea-8c6a-2a27ca452ba1.png)
 
-A new Flutter project.
+# Build a Wallpaper App with Flutter
 
-## Getting Started
+In todays episode we are going to take the basics of #flutter and we are going to create a real world application. We are going to learn how to build a Wallpaper app using only flutter.
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+[Watch Full Tutorial on Youtube](https://youtu.be/EKdAU3l_0gA)
