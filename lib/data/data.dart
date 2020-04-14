@@ -1,6 +1,6 @@
 import 'package:wallpaper/models/categorie_model.dart';
 
-String apiKEY = "563492ad6f9170000100000176c2c175fccd4ef49048d87c28263ebf";
+String apiKEY = "[API_KEY]";
 
 List<CategorieModel> getCategories() {
   List<CategorieModel> categories = new List();
