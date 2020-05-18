@@ -59,40 +59,6 @@ class _CategorieScreenState extends State<CategorieScreen> {
       ),
       body: SingleChildScrollView(
         child: wallPaper(photos, context)
-        /* Container(
-        padding: EdgeInsets.symmetric(horizontal: 16),
-        child: GridView.count(
-            crossAxisCount: 2,
-            childAspectRatio: 0.6,
-            shrinkWrap: true,
-            physics: ClampingScrollPhysics(),
-            padding: const EdgeInsets.all(4.0),
-            mainAxisSpacing: 6.0,
-            crossAxisSpacing: 6.0,
-            children: photos.map((PhotosModel photoModel) {
-              return GridTile(
-                  child: GestureDetector(
-                    onTap: (){
-                      Navigator.push(context, MaterialPageRoute(
-                          builder: (context) => ImageView(
-                            imgPath: photoModel.src.portrait,
-                          )
-                      ));
-                    },
-                    child: Hero(
-                      tag: photoModel.src.portrait,
-                      child: Container(
-                        child: ClipRRect(
-                            borderRadius: BorderRadius.circular(16),
-                            child: CachedNetworkImage(
-                                imageUrl: photoModel.src.portrait,
-                                placeholder: (context, url) => Container(color: Color(0xfff5f8fd),),
-                                fit: BoxFit.cover)),
-                      ),
-                    ),
-                  ));
-            }).toList()),
-      )*/
         ,
       ),
     );
